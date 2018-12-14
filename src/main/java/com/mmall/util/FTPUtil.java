@@ -1,5 +1,6 @@
 package com.mmall.util;
 
+import com.google.common.collect.Lists;
 import org.apache.commons.net.ftp.FTPClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,7 @@ public class FTPUtil {
         logger.info("开始连接ftp服务器,结束上传,上传结果:{}");
         return result;
     }
+
 
 
     private boolean uploadFile(String remotePath,List<File> fileList) throws IOException {
@@ -70,7 +72,7 @@ public class FTPUtil {
         boolean isSuccess = false;
         ftpClient = new FTPClient();
         try {
-            ftpClient.connect(ip);
+            ftpClient.connect(ip,port);
             isSuccess = ftpClient.login(user,pwd);
         } catch (IOException e) {
             logger.error("连接FTP服务器异常",e);
