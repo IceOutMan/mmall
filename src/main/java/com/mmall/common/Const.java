@@ -17,6 +17,14 @@ public class Const {
     public static final String EMAIL = "eamil";
     public static final String USER_NAME = "username";
 
+    public interface  Cart{
+        int CHECKED = 1;//购物车选中
+        int UN_CHECKED = 0;//购物车未选中
+
+        String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";//限制失败
+        String LIMIT_NUM_SUCCESS="LIMIT_NUM_SUCCESS";//限制成功
+    }
+
     public interface ProductListOrderBy{
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
     }
