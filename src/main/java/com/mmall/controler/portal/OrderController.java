@@ -35,14 +35,34 @@ public class OrderController {
     @RequestMapping("create.do")
     @ResponseBody
     public ServerResponse create(HttpSession session, Integer shippingId) {
-
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
-
-
+        return iOrderService.createOrder(user.getId(), shippingId);
     }
+
+    @RequestMapping("cancle.do")
+    @ResponseBody
+    public ServerResponse cancle(HttpSession session, Long orderNo) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iOrderService.cancle(user.getId(), orderNo);
+    }
+
+
+    @RequestMapping("get_order_cart_product.do")
+    @ResponseBody
+    public ServerResponse getOrderCartProduct(HttpSession session) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iOrderService.getOrderCartProduct(user.getId());
+    }
+
 
 
 
