@@ -183,7 +183,14 @@
       #{item.id},#{item.orderNo},#{item.userId},#{item.productId},#{item.productName},#{item.productImage},#{item.currentUnitPrice},#{item.quantity},#{item.totalPrice},#{item.orderNo}, now(), now()
       )
     </foreach>
-
   </insert>
+
+  <select id="getByOrderNo" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM mmall_order_item
+    WHERE order_no = #{orderNo}
+  </select>
+
 
 </mapper>
