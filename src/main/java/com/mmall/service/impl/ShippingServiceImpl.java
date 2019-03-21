@@ -7,6 +7,7 @@ import com.mmall.common.ServerResponse;
 import com.mmall.dao.ShippingMapper;
 import com.mmall.pojo.Shipping;
 import com.mmall.service.IShippingService;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.schema.Server;
 import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service("iShippingService")
+@Slf4j
 public class ShippingServiceImpl implements IShippingService{
 
     @Autowired
