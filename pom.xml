@@ -361,6 +361,9 @@
 
         <profile>
             <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <deploy.type>prod</deploy.type>
             </properties>

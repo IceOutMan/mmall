@@ -4,7 +4,6 @@ import com.mmall.util.PropertiesUtil;
 import redis.clients.jedis.*;
 import redis.clients.util.Hashing;
 import redis.clients.util.Sharded;
-import sun.jvm.hotspot.memory.SharedHeap;
 
 import java.util.ArrayList;
 import java.util.List;
