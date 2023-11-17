@@ -39,11 +39,11 @@ public class RedisShardedPool {
 
         JedisShardInfo info1 = new JedisShardInfo(redis1Ip,redis1Port,1000 * 2);
 //        info1.setPassword(); //如果有密码的话
-        JedisShardInfo info2 = new JedisShardInfo(redis2Ip,redis2Port,2000 * 2);
+//        JedisShardInfo info2 = new JedisShardInfo(redis2Ip,redis2Port,2000 * 2);
 
         List<JedisShardInfo> jedisShardInfoList = new ArrayList<>(2);
         jedisShardInfoList.add(info1);
-        jedisShardInfoList.add(info2);
+//        jedisShardInfoList.add(info2);
 
         pool = new ShardedJedisPool(config,jedisShardInfoList, Hashing.MURMUR_HASH, Sharded.DEFAULT_KEY_TAG_PATTERN);
 

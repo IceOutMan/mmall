@@ -17,12 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/manage/order'")
+@RequestMapping("/manage/order")
 public class OrderManageController {
 
     @Autowired
@@ -31,7 +32,8 @@ public class OrderManageController {
     @Autowired
     private IOrderService iOrderService;
 
-    @RequestMapping("list.do'")
+    @RequestMapping("list.do")
+    @ResponseBody
     public ServerResponse<PageInfo> orderList(HttpServletRequest request,
                                               @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                               @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
@@ -57,7 +59,8 @@ public class OrderManageController {
         }
     }
 
-    @RequestMapping("detail.do'")
+    @RequestMapping("detail.do")
+    @ResponseBody
     public ServerResponse<OrderVo> orderList(HttpServletRequest request, Long orderNo){
 //        User user = (User) session.getAttribute(Const.CURRENT_USER);
         String loginToken = CookieUtil.readLoginToken(request);
@@ -80,7 +83,8 @@ public class OrderManageController {
         }
     }
 
-    @RequestMapping("search.do'")
+    @RequestMapping("search.do")
+    @ResponseBody
     public ServerResponse<PageInfo> orderSearch(HttpServletRequest request, Long orderNo,
                                                @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                                @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
@@ -104,7 +108,7 @@ public class OrderManageController {
         }
     }
 
-    @RequestMapping("send_goods.do'")
+    @RequestMapping("send_goods.do")
     public ServerResponse<String> orderSendGoods(HttpServletRequest request, Long orderNo){
 //        User user = (User) session.getAttribute(Const.CURRENT_USER);
 
